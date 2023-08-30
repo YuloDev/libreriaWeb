@@ -1,10 +1,15 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for,session
 import sqlite3
+
 
 app = Flask(__name__)
 
+app.secret_key = 'mysecretkey'  
+
 # Configuración de la base de datos
 
+def esta_autenticado():
+    return 'usuario' in session
 
 def get_db_connection():
     conn = sqlite3.connect('.sqlite')
@@ -18,25 +23,23 @@ def dashboard():
     books = conn.execute('SELECT * FROM BOOKS').fetchall()
     conn.commit()
     conn.close()
-
-    return render_template('dashboard.html', books=books)
-
+    if request.method == 'GET':
+        if not esta_autenticado():
+            return redirect(url_for('login'))
+        else:
+            return render_template('dashboard.html',books=books)
+    return render_template('login.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    # if request.method == 'POST':
-    #     title = request.form['title']
-    #     user = request.form['user']
+    if request.method == 'POST':
+        
+        user = request.form['username']
+        password = request.form['password']
+        if user == 'admin' and password == 'admin':
+            session['usuario'] = user
+            return redirect(url_for('dashboard')) 
 
-    #     if not title or not user:
-    #         return "Por favor, completa todos los campos."
-
-    #     conn = get_db_connection()
-    #     conn.execute('INSERT INTO loans (title, user) VALUES (?, ?)', (title, user))
-    #     conn.commit()
-    #     conn.close()
-
-    #     return redirect(url_for('index'))
 
     return render_template('login.html')
 
