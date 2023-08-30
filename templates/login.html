@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card-login">
+        <div class="card__image">
+            <img src="{{ url_for('static', filename='logo.jpg') }}" alt="">
+        </div>
+        <form action="" class="card-login__form">
+            <input type="text" placeholder="Usuario">
+            <input type="password" placeholder="Clave">
+            <button type="submit">Ingresar</button>
+        </form>
+
+    </div>
+</body>
+
+</html>

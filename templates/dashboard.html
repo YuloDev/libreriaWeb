@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Página de Inicio{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <nav class="navbar bg-light">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1">Navbar</span>
+            </div>
+        </nav>
+    </div>
+
+    <div class="row">
+        <div class="books-container">
+            {% for book in books %}
+            <div class="book-card">
+                <img src="https://dummyimage.com/200x300/fff/aaa" alt="Portada del Libro">
+                <div class="container">
+                    <h2>{{ book['title'] }}</h2>
+                    <p class="category">{{ book['category'] }}</p>
+                    <p class="description">{{ book['description'] }}</p>
+                </div>
+                <div class="buttons">
+                    <button>Agregar</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

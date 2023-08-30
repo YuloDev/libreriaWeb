@@ -1,0 +1,141 @@
+/* * {
+  margin: 0px;
+  padding: 0px;
+  border: 1px solid #ff0000;
+} */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+#sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #be0f34;
+  color: #fff;
+  float: left;
+}
+
+#content {
+  margin-left: 250px;
+  padding: 20px;
+  overflow: auto;
+  max-height: 100vh;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.card__image img {
+  width: 100%;
+}
+
+.circle__border {
+  margin: 50px;
+}
+.circle__border img {
+  border-radius: 50%;
+}
+.books-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  width: 300px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.book-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.category {
+  font-weight: bold;
+  color: #3498db;
+}
+.description {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end; /* Alinear los botones a la derecha */
+  margin-top: 10px;
+}
+
+.buttons button {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  padding: 0 30px;
+  color: white;
+  background: green;
+  margin-left: 10px; /* Espacio entre los botones */
+}
+
+
+/* LOGIN */
+
+.card-login {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  height: 500px;
+  background: #ffffff;
+}
+
+.card-login input {
+  padding: 10px;
+  margin: 20px 5px;
+}
+
+.card-login__form {
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+}
+.card-login button {
+  color: white;
+  background: #be0f34;
+  padding: 15px;
+  margin: 0px 50px;
+}
