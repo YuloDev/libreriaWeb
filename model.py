@@ -1,16 +1,21 @@
-from flask import Flask, render_template, request, redirect, url_for
-import sqlite3
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import create_engine, Column, Integer, String , DateTime
+from sqlalchemy.orm import Session
 
-def get_db_connection():
-    conn = sqlite3.connect('.sqlite')
-    conn.row_factory = sqlite3.Row
-    return conn
-class Book():
-    def borrow():
+engine = create_engine('sqlite:///.sqlite',echo=True)
+Base = declarative_base()
+class User(Base):
+    __tablename__ = 'users'
+    id = Column(Integer(),autoincrement=True,primary_key=True)
+    username = Column(String(50))
+    email = Column(String(50))
+    password = Column(String(50))
+Base.metadata.create_all(engine)
 
-        conn = get_db_connection()
-        conn.execute(
-            'INSERT INTO loans (title, user) VALUES (?, ?)', ())
-        conn.commit()
-        conn.close()
+
+with Session(engine) as session:
+    spongebob = User(username="spongebob",email="Spongebob Squarepants",password="1234")
+    session.add_all([spongebob])
+    session.commit()
+    
 

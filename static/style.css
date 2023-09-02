@@ -1,27 +1,31 @@
-/* * {
+ /* * {
   margin: 0px;
   padding: 0px;
   border: 1px solid #ff0000;
-} */
+}  */
 
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  background-color:  #dde3db;
+}
+
+a:hover{
+  color: white;
 }
 
 #sidebar {
-  width: 250px;
+  width: 150px;
   height: 100vh;
-  background-color: #be0f34;
+  background-color:  #042c5c;
   color: #fff;
   float: left;
 }
 
 #content {
-  margin-left: 250px;
   padding: 20px;
+  height: 90vh;
   overflow: auto;
   max-height: 100vh;
 }
@@ -53,23 +57,25 @@ th {
   width: 100%;
 }
 
-.circle__border {
-  margin: 50px;
-}
+
 .circle__border img {
   border-radius: 50%;
 }
 .books-container {
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
 .book-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  text-align: left;
-  width: 300px;
+  justify-content: space-around;
+  width: 200px;
+  height: 420px;
   margin: 10px;
   padding: 10px;
   border: 1px solid #ccc;
@@ -94,13 +100,8 @@ th {
   margin-top: 10px;
 }
 
-.buttons {
-  display: flex;
-  justify-content: flex-end; /* Alinear los botones a la derecha */
-  margin-top: 10px;
-}
-
-.buttons button {
+.btn-book {
+  border: none;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
   padding: 0 30px;
@@ -108,6 +109,7 @@ th {
   background: green;
   margin-left: 10px; /* Espacio entre los botones */
 }
+
 
 
 /* LOGIN */
@@ -135,7 +137,7 @@ th {
 }
 .card-login button {
   color: white;
-  background: #be0f34;
+  background: #042c5c;
   padding: 15px;
   margin: 0px 50px;
 }

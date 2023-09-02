@@ -3,32 +3,23 @@
 {% block title %}Página de Inicio{% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <nav class="navbar bg-light">
-            <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1">Navbar</span>
-            </div>
-        </nav>
-    </div>
 
-    <div class="row">
+
         <div class="books-container">
             {% for book in books %}
             <div class="book-card">
-                <img src="https://dummyimage.com/200x300/fff/aaa" alt="Portada del Libro">
+                <img src="http://books.google.com/books/content?id=ogWNEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api" alt="Portada del Libro">
                 <div class="container">
-                    <h2>{{ book['title'] }}</h2>
-                    <p class="category">{{ book['category'] }}</p>
-                    <p class="description">{{ book['description'] }}</p>
+                    <p class="fw-bold">{{ book['title'] }}</p>
+                    <!-- <p class="category">{{ book['category'] }}</p>
+                    <p class="description">{{ book['description'] }}</p> -->
                 </div>
-                <div class="buttons">
-                    <button>Agregar</button>
+                <div>
+                    <button class="btn btn-success">Agregar</button>
                 </div>
             </div>
             {% endfor %}
+
         </div>
-    </div>
-</div>
 
 {% endblock %}
