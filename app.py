@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for,session
-from model import User
+from model import User,Book
 from sqlalchemy import select
 
 app = Flask(__name__)
