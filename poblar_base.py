@@ -1,21 +1,12 @@
-import sqlite3
+from requests import Session
+from sqlalchemy import create_engine
+from model import Book
 from faker import Faker
+from sqlalchemy.ext.declarative import declarative_base
 
-# Conectarse a la base de datos (se creará si no existe)
-conn = sqlite3.connect('.sqlite')
-cursor = conn.cursor()
-
-# Crear tabla si no existe
-cursor.execute('''
-    CREATE TABLE IF NOT EXISTS books (
-        id INTEGER PRIMARY KEY,
-        title TEXT,
-        description TEXT,
-        category TEXT
-    )
-''')
-conn.commit()
-
+engine = create_engine('sqlite:///.sqlite',echo=True)
+Base = declarative_base()
+session = Session(engine)
 # Configura el proveedor en español
 fake = Faker('es_ES')
 
@@ -26,13 +17,6 @@ categories = ["Ficción", "No Ficción",
 books_data = [(fake.sentence(), fake.paragraph(),
                fake.random_element(categories)) for _ in range(10)]
 
-# Insertar datos de libros en la base de datos
-for book in books_data:
-    cursor.execute(
-        'INSERT INTO books (title, description, category) VALUES (?, ?, ?)', book)
-conn.commit()
 
-# Cerrar la conexión a la base de datos
-conn.close()
 
 print("Base de datos poblada exitosamente.")

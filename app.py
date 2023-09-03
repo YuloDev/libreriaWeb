@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for,session
 from model import User
-
+from sqlalchemy import select
 
 app = Flask(__name__)
 
@@ -10,18 +10,14 @@ app.secret_key = 'mysecretkey'
 
 @app.route('/', methods=['GET', 'POST'])
 def dashboard():
-    if request.method == 'GET':
-        if session['usuario'] is None:
-            return redirect(url_for('login'))
-        else:
-            return render_template('dashboard.html',username = session['usuario'] or "")
-    return render_template('login.html')
+    if 'user' in session:
+        return redirect(url_for('login'))     
+    return render_template('dashboard.html', username = session['usuario'] or "")
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    message = ""
     if request.method == 'POST':
-        all_users = session.query(User).all()
+        all_users = User.getAll()
         username = request.form['username']
         password = request.form['password']
         for user in all_users:
@@ -29,25 +25,17 @@ def login():
                 session['usuario'] = username
                 return redirect(url_for('dashboard')) 
 
-    return render_template('login.html',message = message)
+    return render_template('login.html')
 
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
-
-    if request.method == 'POST':
-        
-        user = request.form['username']
-        password = request.form['password']
-        if user == 'admin' and password == 'admin':
-            session['usuario'] = user
-            return redirect(url_for('dashboard')) 
-
-
+    session['usuario'] = None
     return render_template('login.html')
 
 @app.route('/cart', methods=['GET', 'POST'])
 def cart():
-
+    if 'user' in session:
+        return redirect(url_for('login'))     
     return render_template('cart.html')
 
 
