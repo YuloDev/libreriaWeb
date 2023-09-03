@@ -12,7 +12,7 @@ app.secret_key = 'mysecretkey'
 def dashboard():
     if 'user' in session:
         return redirect(url_for('login'))     
-    return render_template('dashboard.html', username = session['usuario'] or "")
+    return render_template('dashboard.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
