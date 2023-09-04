@@ -1,8 +1,8 @@
- /* * {
+  /* * {
   margin: 0px;
   padding: 0px;
   border: 1px solid #ff0000;
-}  */
+}    */
 
 body {
   font-family: Arial, sans-serif;
@@ -16,11 +16,19 @@ a:hover{
 }
 
 #sidebar {
-  width: 150px;
+  width: 100px;
   height: 100vh;
   background-color:  #042c5c;
   color: #fff;
   float: left;
+}
+
+#sidebar > ul {
+  margin: 1px ;
+  padding: 3px;
+}
+#sidebar > ul >li {
+  margin: 3px 0px;
 }
 
 #content {
@@ -57,10 +65,13 @@ th {
   width: 100%;
 }
 
-
+.card__image{
+  padding: 5px;
+}
 .circle__border img {
   border-radius: 50%;
 }
+
 .books-container {
   margin: 0;
   padding: 0;
@@ -115,12 +126,14 @@ th {
 /* LOGIN */
 
 .card-login {
+  padding: 0;
+  margin: 0;
   border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 300px;
-  height: 500px;
+  height: 400px;
   background: #ffffff;
 }
 

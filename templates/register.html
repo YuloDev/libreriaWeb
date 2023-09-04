@@ -24,11 +24,12 @@
         <!-- <div class="card__image">
             <img src="{{ url_for('static', filename='logo.jpg') }}" alt="">
         </div> -->
-        <form action="{{ url_for('login')}}" class="card-login__form" method="post">
+        <form action="/register" class="card-login__form" method="post">
             <input type="text" placeholder="Usuario" name="username" required>
+            <input type="email" placeholder="Email" name="email" required>
             <input type="password" placeholder="Clave" name="password" required>
-            <p class="text-center"><a href="/register">registrarse</a></p>
-            <button type="submit">Ingresar</button>
+            <p class="text-center"><a href="/login">iniciar sesion</a></p>
+            <button type="submit">Registrarse</button>
         </form>
 
     </div>

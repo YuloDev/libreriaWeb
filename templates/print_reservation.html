@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .invoice {
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .invoice h1 {
+            font-size: 24px;
+        }
+
+        .invoice .details {
+            margin-top: 20px;
+        }
+
+        .invoice .details p {
+            margin: 0;
+        }
+
+        .invoice table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .invoice table th,
+        .invoice table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .invoice table th {
+            background-color: #f2f2f2;
+        }
+
+        .invoice .total {
+            margin-top: 20px;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="invoice">
+        <h1>Reservación</h1>
+        <div class="details">
+            <p><strong>Cliente:</strong> {{client}}</p>
+            <p><strong>Fecha:</strong> {{date}}</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Categoría</th>
+                    <th>Descripción</th>
+                    <th>cantidad</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for book in books %}
+                <tr>
+                    <td>{{ book.titulo }}</td>
+                    <td>{{ book.categoria }}</td>
+                    <td>{{ book.descripcion }}</td>
+                    <td>{{ book.cantidad }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script>
+        print()
+        window.addEventListener("afterprint", () => {
+            window.location.href = "/"
+        });
+    </script>
+</body>
+
+</html>

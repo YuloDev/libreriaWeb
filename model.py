@@ -1,6 +1,6 @@
 import select
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import create_engine, Column, Integer, String , DateTime
+from sqlalchemy import create_engine, Column, Integer, String,Float
 from sqlalchemy.orm import Session
 import random
 engine = create_engine('sqlite:///.sqlite',echo=True)
@@ -13,6 +13,10 @@ class User(Base):
     username = Column(String(50))
     email = Column(String(50))
     password = Column(String(50))
+    
+    def add(self):
+        session.add(self)
+        session.commit()
 
     def getAll():
         return session.query(User).all()
@@ -23,25 +27,29 @@ class Book(Base):
     name = Column(String(50))
     category = Column(String(50))
     amount = Column(Integer(),default=0)
-    description = Column(String(50))
+    description = Column(String(50),default="")
 
     def getAll():
         return session.query(Book).all()
 
+class Reservation(Base):
+    __tablename__ = 'reservations'
+    id = Column(Integer(),autoincrement=True,primary_key=True)
+    user = Column(String(50))
+    end_date = Column(String(50),default="")
+    
+    def add(self):
+        session.add(self)
+        session.commit()    
+
+    def getAll():
+        return session.query(Book).all()
+    
+class ReservationItem(Base):
+    __tablename__ = 'invoice_items'
+    id = Column(Integer(),autoincrement=True,primary_key=True)
+    quantity = Column(Integer)
+    subtotal = Column(Float)
+    
 
 Base.metadata.create_all(engine)
-
-
-categories = ["Ficción", "No Ficción",
-              "Misterio", "Romance", "Ciencia Ficción"]
-
-session.add(Book(name="EL diario de ana frank",category=random.choice(categories)))
-session.add(Book(name="La Ilíada",category=random.choice(categories)))
-session.add(Book(name="Hamlet",category=random.choice(categories)))
-session.add(Book(name="La divina comedia",category=random.choice(categories)))
-session.add(Book(name="La guerra y la paz",category=random.choice(categories)))
-session.add(Book(name="Madame Bovary",category=random.choice(categories)))
-session.add(Book(name="El Aleph",category=random.choice(categories)))
-session.add(Book(name="El proceso",category=random.choice(categories)))
-session.add(Book(name="En busca del tiempo perdido",category=random.choice(categories)))
-session.add(Book(name="Los hermanos Karamazov",category=random.choice(categories)))

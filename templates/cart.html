@@ -7,29 +7,21 @@
 
     <div class="row mt-3">
         <table>
-            <thead>
+            <thead >
                 <tr>
                     <th>Título</th>
                     <th>Categoría</th>
                     <th>Descripción</th>
+                    <th>Cantidad</th>
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
-                {% for book in books %}
-                <tr>
-                    <td>{{ book['title'] }}</td>
-                    <td>{{ book['category'] }}</td>
-                    <td>{{ book['description'] }}</td>
-                    <td>
-                        <button class="btn btn-danger" onclick="deleteRow(this)">Eliminar</button>
-                    </td>
-                </tr>
-                {% endfor %}
+            <tbody id="cart-table-body">
+
             </tbody>
         </table>
     </div>
     <button class="btn btn-success">Confirmar reserva</button>
 </div>
-
+<script src="{{ url_for('static', filename='cart.js') }}"></script>
 {% endblock %}
