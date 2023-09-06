@@ -1,20 +1,39 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+## Requisitos
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+Enumera aquí los requisitos necesarios para ejecutar la aplicación. Esto podría incluir:
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+- Python (Python 3.8)
+- Dependencias de Python: (blinker==1.6.2
+certifi==2023.7.22
+charset-normalizer==3.2.0
+click==8.1.7
+colorama==0.4.6
+Faker==19.3.1
+Flask==2.3.3
+greenlet==2.0.2
+idna==3.4
+itsdangerous==2.1.2
+Jinja2==3.1.2
+MarkupSafe==2.1.3
+python-dateutil==2.8.2
+requests==2.31.0
+six==1.16.0
+SQLAlchemy==2.0.20
+typing_extensions==4.7.1
+urllib3==2.0.4
+Werkzeug==2.3.7
+)
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+
+## Configuración
+
+1. Clona este repositorio en tu máquina local.
+2. Crea un entorno virtual de Python.
+3. Instala las dependencias utilizando pip.
+
+
+## Ejecución
+
+```bash
+python app.py
