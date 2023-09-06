@@ -50,7 +50,7 @@ def register():
 
 @app.route('/cart', methods=['GET', 'POST'])
 def cart():
-    
+    #Comentario xd
     if 'user' in session:
         return redirect(url_for('login'))
     # Obtiene los datos de los libros de la URL
