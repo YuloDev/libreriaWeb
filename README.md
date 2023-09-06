@@ -1,7 +1,7 @@
 
 ## Requisitos
 
-Enumera aquí los requisitos necesarios para ejecutar la aplicación. Esto podría incluir:
+Requisitos necesarios para ejecutar la aplicación:
 
 - Python (Python 3.8)
 - Dependencias de Python: (blinker==1.6.2
