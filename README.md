@@ -4,7 +4,7 @@
 Requisitos necesarios para ejecutar la aplicación:
 
 - Python (Python 3.8)
-- Dependencias de Python: 
+- Dependencias de Python: <br>
 blinker1.6.2
 charset-normalizer 3.2.0
 click 8.1.7
